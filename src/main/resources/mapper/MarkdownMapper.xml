@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.yigumoyan.blogjava.mapper.MarkdownMapper">
+
+    <insert id="insertMarkdown" parameterType="top.yigumoyan.blogjava.entity.Markdown">
+        insert into markdown (title, classification, markdown, time)
+        values (#{title}, #{classification}, #{markdown}, #{time});
+    </insert>
+
+    <delete id="deleteMarkdownById" parameterType="int">
+        delete
+        from markdown
+        where id = #{id};
+    </delete>
+
+    <update id="updateMarkdownById" parameterType="top.yigumoyan.blogjava.entity.Markdown">
+        update markdown
+        set title          = #{title},
+            classification = #{classification},
+            markdown       = #{markdown},
+            time           = #{time}
+        where id = ${id};
+    </update>
+
+    <select id="selectAllMarkdown" resultType="top.yigumoyan.blogjava.entity.Markdown">
+        select *
+        from markdown;
+    </select>
+
+    <select id="selectMarkdownById" parameterType="int" resultType="top.yigumoyan.blogjava.entity.Markdown">
+        select *
+        from markdown
+        where id = #{id};
+    </select>
+</mapper>
