@@ -1,10 +1,8 @@
 package top.yigumoyan.blogjava.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import top.yigumoyan.blogjava.entity.Markdown;
 import top.yigumoyan.blogjava.result.Result;
 import top.yigumoyan.blogjava.service.Impl.MarkdownServiceImpl;
@@ -14,27 +12,28 @@ import javax.annotation.Resource;
 @Controller
 @ResponseBody
 @RequestMapping("/markdown")
+@CrossOrigin
 public class MarkdownController {
 
     @Resource
     private MarkdownServiceImpl markdownService;
 
     @PostMapping("/insertMarkdown")
-    public Result insertMarkdown(Markdown markdown) {
+    public Result insertMarkdown(@RequestBody Markdown markdown) {
         markdownService.insertMarkdown(markdown);
-        return Result.ok();
+        return Result.ok(true);
     }
 
     @PostMapping("/deleteMarkdownById")
-    public Result deleteMarkdownById(int id) {
-        markdownService.deleteMarkdownById(id);
+    public Result deleteMarkdownById(@RequestBody JSONObject json) {
+        markdownService.deleteMarkdownById((Integer) json.get("id"));
         return Result.ok();
     }
 
     @PostMapping("/updateMarkdown")
-    public Result updateMarkdown(Markdown markdown) {
+    public Result updateMarkdown(@RequestBody Markdown markdown) {
         markdownService.updateMarkdownById(markdown);
-        return Result.ok();
+        return Result.ok(true);
     }
 
     @GetMapping("/selectAllMarkdown")
@@ -43,7 +42,7 @@ public class MarkdownController {
     }
 
     @PostMapping("/selectMarkdownById")
-    public Result selectMarkdownById(int id) {
-        return Result.ok(markdownService.selectMarkdownById(id));
+    public Result selectMarkdownById(@RequestBody JSONObject json) {
+        return Result.ok(markdownService.selectMarkdownById((Integer) json.get("id")));
     }
 }

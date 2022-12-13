@@ -1,6 +1,7 @@
 package top.yigumoyan.blogjava.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -12,7 +13,8 @@ import javax.annotation.Resource;
 
 @Controller
 @ResponseBody
-@RequestMapping("/markdown")
+@RequestMapping("/account")
+@CrossOrigin
 public class AccountController {
 
     @Resource
