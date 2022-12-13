@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.yigumoyan.blogjava.mapper.HitokotoMapper">
+
+    <insert id="insertHitokoto" parameterType="top.yigumoyan.blogjava.entity.Hitokoto">
+        insert into hitokoto (say, fromArt, fromWho)
+        values (#{say}, #{fromArt}, #{fromWho});
+    </insert>
+
+    <delete id="deleteHitokotoById" parameterType="int">
+        delete
+        from hitokoto
+        where id = #{id};
+    </delete>
+
+    <update id="updateHitokotoById" parameterType="top.yigumoyan.blogjava.entity.Hitokoto">
+        update hitokoto
+        set say = #{say}, fromArt = #{fromArt}, fromWho = #{fromWho}
+        where id = #{id};
+    </update>
+
+    <select id="selectAllHitokoto" resultType="top.yigumoyan.blogjava.entity.Hitokoto">
+        select *
+        from hitokoto;
+    </select>
+
+    <select id="selectHitokotoById" parameterType="int" resultType="top.yigumoyan.blogjava.entity.Hitokoto">
+        select *
+        from hitokoto
+        where id = #{id};
+    </select>
+</mapper>
