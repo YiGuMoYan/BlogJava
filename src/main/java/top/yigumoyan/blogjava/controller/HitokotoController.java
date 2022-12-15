@@ -23,19 +23,19 @@ public class HitokotoController {
     @PostMapping("/insertHitokoto")
     public Result insertHitokoto(@RequestBody Hitokoto hitokoto) {
         hitokotoService.insertHitokoto(hitokoto);
-        return Result.ok();
+        return Result.ok(true);
     }
 
     @PostMapping("/deleteHitokoto")
     public Result deleteHitokoto(@RequestBody JSONObject json) {
         hitokotoService.deleteHitokotoById((Integer) json.get("id"));
-        return Result.ok();
+        return Result.ok(true);
     }
 
     @PostMapping("/updateHitokoto")
     public Result updateHitokoto(@RequestBody Hitokoto hitokoto) {
         hitokotoService.updateHitokotoById(hitokoto);
-        return Result.ok();
+        return Result.ok(true);
     }
 
     @GetMapping("/selectAllHitokoto")
