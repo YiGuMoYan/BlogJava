@@ -52,7 +52,7 @@ public class MarkdownController {
     @PostMapping("/selectMarkdownById")
     public Result selectMarkdownById(@RequestBody JSONObject json) {
         System.out.println(json.get("id"));
-        return Result.ok(markdownService.selectMarkdownById((Integer) json.get("id")));
+        return Result.ok(markdownService.selectMarkdownById(Integer.parseInt((String) json.get("id"))));
     }
 
     @GetMapping("/selectAllClassification")
