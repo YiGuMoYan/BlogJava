@@ -18,5 +18,9 @@ public interface MarkdownMapper {
 
     public List<Markdown> selectAllMarkdown();
 
+    public List<Markdown> selectMarkdownByClassification(String classification);
+
     public Markdown selectMarkdownById(int id);
+
+    public List<String> selectAllClassification();
 }

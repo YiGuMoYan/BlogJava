@@ -29,9 +29,21 @@
         from markdown;
     </select>
 
+    <select id="selectMarkdownByClassification" parameterType="java.lang.String"
+            resultType="top.yigumoyan.blogjava.entity.Markdown">
+        select *
+        from markdown
+        where classification regexp #{classification};
+    </select>
+
     <select id="selectMarkdownById" parameterType="int" resultType="top.yigumoyan.blogjava.entity.Markdown">
         select *
         from markdown
         where id = #{id};
+    </select>
+
+    <select id="selectAllClassification" resultType="java.lang.String">
+        select classification
+        from markdown;
     </select>
 </mapper>
