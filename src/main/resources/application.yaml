@@ -10,3 +10,8 @@ mybatis:
   type-aliases-package: top.yigumoyan.blogjava.entity
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+BlogJava:
+  domain: http://127.0.0.1:8080
+  prefix: /image/
+  filePath: F:\Documents\Java\Image\
