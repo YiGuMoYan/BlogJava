@@ -14,9 +14,13 @@ public interface MarkdownService {
 
     public List<Markdown> selectAllMarkdown();
 
+    public List<Markdown> selectAllMarkdownMessage();
+
     public List<Markdown> selectMarkdownByClassification(String classification);
 
     public Markdown selectMarkdownById(int id);
+
+    public Markdown selectMarkdownContentById(int id);
 
     public List<String> selectAllClassification();
 }

@@ -9,7 +9,6 @@ import top.yigumoyan.blogjava.service.Impl.MarkdownServiceImpl;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 @Controller
@@ -44,15 +43,25 @@ public class MarkdownController {
         return Result.ok(markdownService.selectAllMarkdown());
     }
 
+    @GetMapping("/selectAllMarkdownMessage")
+    public Result selectAllMarkdownMessage() {
+        return Result.ok(markdownService.selectAllMarkdownMessage());
+    }
+
+    @PostMapping("/selectMarkdownContentById")
+    public Result selectMarkdownContentById(@RequestBody JSONObject json) {
+        return Result.ok(markdownService.selectMarkdownContentById(Integer.parseInt(json.getString("id"))));
+    }
+
     @PostMapping("/selectMarkdownByClassification")
     public Result selectMarkdownByClassification(@RequestBody JSONObject json) {
-        return Result.ok(markdownService.selectMarkdownByClassification((String) json.get("label")));
+        return Result.ok(markdownService.selectMarkdownByClassification(json.getString("label")));
     }
 
     @PostMapping("/selectMarkdownById")
     public Result selectMarkdownById(@RequestBody JSONObject json) {
         System.out.println(json.get("id"));
-        return Result.ok(markdownService.selectMarkdownById(Integer.parseInt((String) json.get("id"))));
+        return Result.ok(markdownService.selectMarkdownById(Integer.parseInt(json.getString("id"))));
     }
 
     @GetMapping("/selectAllClassification")

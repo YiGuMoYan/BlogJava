@@ -41,6 +41,11 @@ public class MarkdownServiceImpl implements MarkdownService {
     }
 
     @Override
+    public List<Markdown> selectAllMarkdownMessage() {
+        return markdownMapper.selectAllMarkdownMessage();
+    }
+
+    @Override
     public List<Markdown> selectMarkdownByClassification(String classification) {
         return markdownMapper.selectMarkdownByClassification(classification);
     }
@@ -48,6 +53,11 @@ public class MarkdownServiceImpl implements MarkdownService {
     @Override
     public Markdown selectMarkdownById(int id) {
         return markdownMapper.selectMarkdownById(id);
+    }
+
+    @Override
+    public Markdown selectMarkdownContentById(int id) {
+        return markdownMapper.selectMarkdownContentById(id);
     }
 
     @Override
