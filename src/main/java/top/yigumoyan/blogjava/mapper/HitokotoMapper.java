@@ -19,4 +19,6 @@ public interface HitokotoMapper {
     public List<Hitokoto> selectAllHitokoto();
 
     public Hitokoto selectHitokotoById(int id);
+
+    public Hitokoto selectHitokoto();
 }

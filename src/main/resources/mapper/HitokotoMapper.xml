@@ -17,7 +17,9 @@
 
     <update id="updateHitokotoById" parameterType="top.yigumoyan.blogjava.entity.Hitokoto">
         update hitokoto
-        set say = #{say}, fromArt = #{fromArt}, fromWho = #{fromWho}
+        set say     = #{say},
+            fromArt = #{fromArt},
+            fromWho = #{fromWho}
         where id = #{id};
     </update>
 
@@ -30,5 +32,12 @@
         select *
         from hitokoto
         where id = #{id};
+    </select>
+
+    <select id="selectHitokoto" resultType="top.yigumoyan.blogjava.entity.Hitokoto">
+        select *
+        from hitokoto
+        order by rand()
+        limit 1;
     </select>
 </mapper>

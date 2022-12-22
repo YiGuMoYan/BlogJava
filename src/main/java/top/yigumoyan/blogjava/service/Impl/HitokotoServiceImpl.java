@@ -8,6 +8,7 @@ import top.yigumoyan.blogjava.mapper.HitokotoMapper;
 import top.yigumoyan.blogjava.service.HitokotoService;
 
 import java.util.List;
+import java.util.Random;
 
 @Service
 @Component
@@ -43,5 +44,10 @@ public class HitokotoServiceImpl implements HitokotoService {
     @Override
     public Hitokoto selectHitokotoById(int id) {
         return hitokotoMapper.selectHitokotoById(id);
+    }
+
+    @Override
+    public Hitokoto selectHitokoto() {
+        return hitokotoMapper.selectHitokoto();
     }
 }

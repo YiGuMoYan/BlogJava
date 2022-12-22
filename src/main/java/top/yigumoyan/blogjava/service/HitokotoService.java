@@ -14,4 +14,6 @@ public interface HitokotoService {
     public List<Hitokoto> selectAllHitokoto();
 
     public Hitokoto selectHitokotoById(int id);
+
+    public Hitokoto selectHitokoto();
 }

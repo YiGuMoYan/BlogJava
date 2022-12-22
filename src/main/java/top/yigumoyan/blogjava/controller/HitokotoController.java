@@ -9,7 +9,6 @@ import top.yigumoyan.blogjava.service.Impl.HitokotoServiceImpl;
 
 import javax.annotation.Resource;
 import java.util.List;
-import java.util.Random;
 
 @Controller
 @ResponseBody
@@ -52,8 +51,6 @@ public class HitokotoController {
 
     @GetMapping("/selectHitokoto")
     public Result selectHitokoto() {
-        List<Hitokoto> hitokotos = hitokotoService.selectAllHitokoto();
-        Random random = new Random();
-        return Result.ok(hitokotos.get(random.nextInt(hitokotos.size())));
+        return Result.ok(hitokotoService.selectHitokoto());
     }
 }
