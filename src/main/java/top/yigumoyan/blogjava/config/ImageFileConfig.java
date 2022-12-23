@@ -1,11 +1,11 @@
 package top.yigumoyan.blogjava.config;
 
-import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-@Configurable
+@Configuration
 public class ImageFileConfig implements WebMvcConfigurer {
 
     @Value("${BlogJava.domain}")
@@ -14,7 +14,7 @@ public class ImageFileConfig implements WebMvcConfigurer {
     @Value("${BlogJava.prefix}")
     private String prefix;
 
-    @Value("${BlogJava.filePath}")
+    @Value("${BlogJava.file-path}")
     private String filePath;
 
     @Override

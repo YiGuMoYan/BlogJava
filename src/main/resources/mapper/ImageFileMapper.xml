@@ -20,7 +20,7 @@
         from image;
     </select>
 
-    <select id="ImageFile" resultType="top.yigumoyan.blogjava.entity.ImageFile">
+    <select id="selectImageFile" resultType="top.yigumoyan.blogjava.entity.ImageFile">
         select *
         from image
         order by rand()

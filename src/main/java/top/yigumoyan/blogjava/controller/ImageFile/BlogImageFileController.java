@@ -1,6 +1,7 @@
 package top.yigumoyan.blogjava.controller.ImageFile;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,6 +14,7 @@ import java.util.UUID;
 
 @RequestMapping("/blogImageFile")
 @RestController
+@CrossOrigin
 public class BlogImageFileController {
 
     @Value("${BlogJava.domain}")
@@ -21,18 +23,22 @@ public class BlogImageFileController {
     @Value("${BlogJava.prefix}")
     private String prefix;
 
-    @Value("${BlogJava.filePath}")
+    @Value("${BlogJava.file-path}")
     private String filePath;
 
     @PostMapping("/upload")
-    public Result upload(MultipartFile multipartFile) throws IOException {
-        String originalFilename = multipartFile.getOriginalFilename();
-        String[] split = originalFilename.split("\\.");
-        String extendName = split[split.length - 1];
-        String fileName = UUID.randomUUID().toString() + "." + extendName;
-        String pathName = filePath + fileName;
-        multipartFile.transferTo(new File(pathName));
-        String url = domain + prefix + fileName;
-        return Result.ok(url);
+    public Result upload(MultipartFile file) throws IOException {
+        try {
+            String originalFilename = file.getOriginalFilename();
+            String[] split = originalFilename.split("\\.");
+            String extendName = split[split.length - 1];
+            String fileName = UUID.randomUUID().toString() + "." + extendName;
+            String pathName = filePath + fileName;
+            file.transferTo(new File(pathName));
+            String url = domain + prefix + fileName;
+            return Result.ok(url);
+        } catch (IOException | IllegalStateException e) {
+            return Result.fail();
+        }
     }
 }
