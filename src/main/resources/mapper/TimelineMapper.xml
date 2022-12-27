@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.yigumoyan.blogjava.mapper.TimelineMapper">
+
+    <insert id="insertTimeline" parameterType="top.yigumoyan.blogjava.entity.Timeline">
+        insert into timeline (id, point, time)
+        values (#{id}, #{point}, #{time});
+    </insert>
+
+    <delete id="deleteTimelineById" parameterType="int">
+        delete
+        from timeline
+        where id = #{id};
+    </delete>
+
+    <update id="updateTimeline" parameterType="top.yigumoyan.blogjava.entity.Timeline">
+        update timeline
+        set point = #{point},
+            time  = #{time}
+        where id = #{id};
+    </update>
+
+    <select id="selectAllTimeline" resultType="top.yigumoyan.blogjava.entity.Timeline">
+        select *
+        from timeline;
+    </select>
+</mapper>

@@ -1,6 +1,7 @@
 package top.yigumoyan.blogjava.controller.ImageFile;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import top.yigumoyan.blogjava.entity.ImageFile;
@@ -15,6 +16,7 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/backgroundImageFile")
 @CrossOrigin
+@Component
 public class BackgroundImageFileController {
 
     @Resource

@@ -1,5 +1,6 @@
 package top.yigumoyan.blogjava.controller;
 
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,6 +16,7 @@ import javax.annotation.Resource;
 @ResponseBody
 @RequestMapping("/account")
 @CrossOrigin
+@Component
 public class AccountController {
 
     @Resource

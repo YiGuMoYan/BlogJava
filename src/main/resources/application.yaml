@@ -1,14 +1,17 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/blog?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=false&allowPublicKeyRetrieval=true
-    username: root
-    password: 123456
+    url: jdbc:mysql://39.101.76.197:3306/blog?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=false&allowPublicKeyRetrieval=true
+    username: blog
+    password: WcMZJzphrkSy6brC
   servlet:
     multipart:
       enabled: true
       max-file-size: 10MB
       max-request-size: 10MB
+
+server:
+  port: 8080
 
 mybatis:
   mapper-locations: classpath:mapper/*.xml
@@ -17,6 +20,6 @@ mybatis:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
 BlogJava:
-  domain: http://127.0.0.1:8080
+  domain: http://39.101.76.197
   prefix: /image/
-  file-path: F:\Documents\Java\Image\
+  file-path: /root/image/

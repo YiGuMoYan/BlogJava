@@ -1,6 +1,7 @@
 package top.yigumoyan.blogjava.controller.ImageFile;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +16,7 @@ import java.util.UUID;
 @RequestMapping("/blogImageFile")
 @RestController
 @CrossOrigin
+@Component
 public class BlogImageFileController {
 
     @Value("${BlogJava.domain}")

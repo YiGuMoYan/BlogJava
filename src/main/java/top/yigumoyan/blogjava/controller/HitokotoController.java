@@ -1,6 +1,7 @@
 package top.yigumoyan.blogjava.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import top.yigumoyan.blogjava.entity.Hitokoto;
@@ -14,6 +15,7 @@ import java.util.List;
 @ResponseBody
 @RequestMapping("/hitokoto")
 @CrossOrigin
+@Component
 public class HitokotoController {
 
     @Resource
