@@ -20,6 +20,6 @@ mybatis:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
 BlogJava:
-  domain: http://39.101.76.197
+  domain: http://127.0.0.1:8080
   prefix: /image/
-  file-path: /root/image/
+  file-path: F:/Documents/Java/Image/
