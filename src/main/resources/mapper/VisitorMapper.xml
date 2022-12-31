@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.yigumoyan.blogjava.mapper.VisitorMapper">
+
+    <update id="updateVisitor" parameterType="top.yigumoyan.blogjava.entity.Visitor">
+        update visitor
+        set num = #{num}
+        where id = #{id};
+    </update>
+    
+    <select id="selectAllVisitor" resultType="top.yigumoyan.blogjava.entity.Visitor">
+        select *
+        from visitor;
+    </select>
+</mapper>
